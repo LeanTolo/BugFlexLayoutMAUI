@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BugFlexLayout.MainPage"
+             xmlns:viewmodel="clr-namespace:BugFlexLayout"
+             x:DataType="viewmodel:MainViewModel">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="50"
+            Padding="30,0"
+            VerticalOptions="Start">
+
+            <Button
+                x:Name="CounterBtn"
+                Text="AddToCollection"
+                Command="{Binding OnAddToCollectionClickedCommand}"
+                HorizontalOptions="Center" />
+            <Label Text="Flex Layout Collection Collection" />
+
+            <FlexLayout  BindableLayout.ItemsSource="{Binding CollectionToShow}"
+                         Wrap="Wrap"
+                         HorizontalOptions="Center"
+                         VerticalOptions="CenterAndExpand">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate x:DataType="x:String">
+                        <Label Text="{Binding .}" 
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="Center" />
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+                <BindableLayout.EmptyView>
+                    <StackLayout>
+                        <Label Text="No Data Flex Layout OBSERVABLECOLLECTION" />
+                    </StackLayout>
+                </BindableLayout.EmptyView>
+            </FlexLayout>
+            <Label Text="Flex Layout IEnumerable Collection" />
+
+            <FlexLayout
+                
+                BindableLayout.ItemsSource="{Binding IenumerableToShow}"
+                         Wrap="Wrap"
+                         HorizontalOptions="Center"
+                         VerticalOptions="CenterAndExpand">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate x:DataType="x:String">
+                        <Label Text="{Binding .}" 
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="Center" />
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+                <BindableLayout.EmptyView>
+                    <StackLayout>
+                        <Label Text="No Data Flex Layout IENUMERABLE" />
+                    </StackLayout>
+                </BindableLayout.EmptyView>
+            </FlexLayout>
+            <Label Text="Grid Observable Collection" />
+            <Grid  BindableLayout.ItemsSource="{Binding CollectionToShow}"
+                   ColumnDefinitions="Auto, Auto"
+                   RowDefinitions="Auto, Auto"
+                         HorizontalOptions="Center"
+                         VerticalOptions="CenterAndExpand">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate x:DataType="x:String">
+                        <Label Text="{Binding .}" 
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="Center" />
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+                <BindableLayout.EmptyView>
+                    <StackLayout>
+                        <Label Text="No Data Grid IENUMERABLE" />
+                    </StackLayout>
+                </BindableLayout.EmptyView>
+            </Grid>
+            <Label Text="Grid IEnumerable Collection" />
+
+            <Grid  BindableLayout.ItemsSource="{Binding IenumerableToShow}"
+                   ColumnDefinitions="Auto, Auto"
+                   RowDefinitions="Auto, Auto"
+                         HorizontalOptions="Center"
+                         VerticalOptions="CenterAndExpand">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate x:DataType="x:String">
+                        <Label Text="{Binding .}" 
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="Center" />
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+                <BindableLayout.EmptyView>
+                    <StackLayout>
+                        <Label Text="No Data Grid IENUMERABLE" />
+                    </StackLayout>
+                </BindableLayout.EmptyView>
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
