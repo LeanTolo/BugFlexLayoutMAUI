@@ -1,0 +1,2 @@
+# BugFlexLayoutMAUI
+Srry, forgot gitignore
